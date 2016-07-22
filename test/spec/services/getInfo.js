@@ -2,6 +2,8 @@
 
 describe('Test service', function () {
 
+
+  //There are two ways a) to use $injector or b) $provider; we are mocking using $provider
   //injecting factory first with defined function
   beforeEach(module(function($provide){
 
