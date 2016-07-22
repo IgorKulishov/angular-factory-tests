@@ -116,7 +116,11 @@ describe('Test service', function () {
     httpBackend.flush();
 
     console.log('AboutCtrl : ', AboutCtrl);
-
+    // titles
     expect(scope.id_title).toBeDefined();
+    expect(scope.id_title).toBe('#');
+    expect(scope.name_title).toBe('Name');
+    // data
+    expect(scope.data[0].firstName).toBe('Wayne');
   });
 });
