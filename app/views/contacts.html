@@ -1,0 +1,29 @@
+<div class="boombox">
+	<h1>Contact information:</h1>
+	<div class="searchTable">
+		<b>Add new: </b>
+		<input ng-model="newContact.firstName" placeholder="add first name">
+		<input ng-model="newContact.phone" placeholder="add phone">
+		<button class="btn btn-primary" ng-click="addContact(newContact)">Add</button>
+	</div>
+	<div class="searchTable">
+		<b>Search:</b> 
+		<input ng-model="searchTable" placeholder="search by any word">
+		<b>Order: </b>
+		Ascending: <input type="radio" data-ng-model="sortingOrder" data-ng-value='false'>
+		Descending: <input type="radio" data-ng-model="sortingOrder" data-ng-value='true'>
+	</div>
+	<table class="table">
+		<thead class="table_header">
+			<tr>
+				<td>{{name_title}}<a ng-click="sortByName(sortingOrder)"><span class="sorting_chevrons glyphicon" ng-class="[{'glyphicon-chevron-down' : ((sortingType == 'firstName') && (sortingOrder == false))}, {'glyphicon-chevron-up' : ((sortingType == 'firstName') && (sortingOrder == true))}, {'glyphicon-minus' : (sortingType == 'phone')}]"></a><td>
+				<td>{{phone_title}}<a ng-click="sortByPhone(sortingOrder)"><span class="sorting_chevrons glyphicon" ng-class="[{'glyphicon-chevron-down' : ((sortingType == 'phone') && (sortingOrder == false))}, {'glyphicon-chevron-up' : ((sortingType == 'phone') && (sortingOrder == true))}, {'glyphicon-minus' : (sortingType == 'firstName')}]"></a><td>
+				<td>X</td>
+			</tr>
+		</thead>
+		<tr ng-repeat="data in data | orderBy : sortingType : sortingOrder | filter : searchTable : false ">
+			<td ng-bind-html="data.firstName"><td>
+			<td>{{data.phone}}<td>
+			<td><a ng-click="deleteRow(data.id)">X</a></td>
+		</tr>
+	</table>
