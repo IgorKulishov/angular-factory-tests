@@ -2,11 +2,12 @@
 
 /***
 *
-* FACTORY TEST MOCKING WITH $PROVIDE 
+* TESTING USING $PROVIDE AND PROMISE $Q:
 * 
 * a) instantiate module 'yo714App'
-* b) we override 'getInfo' with function defined by $provide (get injected)
-
+* b) mock function 'getInfo' using $provide using promise
+* c) we override 'getInfo' with mock function defined by $provide 
+* 
 * Note: when 'getInfo' is called during mocking test, provider will give the mocking value
 * 
 ****/
