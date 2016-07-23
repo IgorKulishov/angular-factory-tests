@@ -2,7 +2,7 @@
 
 /***
 *
-* FACTORY TEST MOKING WITH $PROVIDE 
+* FACTORY TEST MOCKING WITH $PROVIDE 
 * 
 * a) instantiate module 'yo714App'
 * b) we override 'getInfo' with function defined by $provide (get injected)
@@ -106,13 +106,11 @@ describe('Test AboutCtrl controller and factory using Mocking: ', function () {
 		
 		expect(getInfoMock.tableTitles).toBeDefined();
 
-		// 1. not defined before '$digest'
-		console.log('scope.name_title', scope.name_title);
+		// 1. not defined before '$digest'		
 		expect(scope.name_title).not.toBeDefined();
 		scope.$digest();
 
-		// 2. defined after '$digest'
-		console.log('scope.name_title', scope.name_title);
+		// 2. defined after '$digest'		
 		expect(scope.name_title).toBe('Name');		
 		
 	});
