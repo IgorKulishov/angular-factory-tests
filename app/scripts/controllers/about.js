@@ -13,6 +13,7 @@ angular.module('yo714App').
 	  	$scope.chevronName = $scope.chevronPhone = "glyphicon glyphicon-minus";
 	  	$scope.sortingType = 'firstName';
 	  	$scope.sortingOrder = false;
+	  	$scope.data = [1];
 
 	  	getInfo.tableTitles().then(
 	  		function(data){

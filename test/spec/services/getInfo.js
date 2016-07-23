@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Test service', function () {
+describe('getInfo service: ', function () {
 
 
   //There are two ways a) to use $injector or b) $provider; we are mocking using $provider
@@ -60,10 +60,8 @@ describe('Test service', function () {
 
   
   // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope, $httpBackend, $injector, getInfo) {
+  beforeEach(inject(function ($controller, $rootScope, $httpBackend, $injector) {
     scope = $rootScope.$new();
-
-    mockGetInfo = getInfo;
     
     AboutCtrl = $controller('AboutCtrl', {
       $scope: scope
@@ -116,11 +114,11 @@ describe('Test service', function () {
     httpBackend.flush();
 
     console.log('AboutCtrl : ', AboutCtrl);
-    // titles
+    // test titles
     expect(scope.id_title).toBeDefined();
     expect(scope.id_title).toBe('#');
     expect(scope.name_title).toBe('Name');
-    // data
+    // test content
     expect(scope.data[0].firstName).toBe('Wayne');
   });
 });
