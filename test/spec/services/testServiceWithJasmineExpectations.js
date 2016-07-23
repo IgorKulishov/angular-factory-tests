@@ -1,6 +1,17 @@
 'use strict';
 
-describe('Test service with AboutCtrl controller and factory: ', function () {
+/***
+*
+* TEST BASED ON HTTPBACKEND CALL WITH SET EXPECTATIONS:
+* 
+* a) instantiate module 'yo714App'
+* b) inject scope and service httpBackend (Angular-mock prevents actual XHR call)
+* c) instatiate controller
+* Note: because controller makes a call it is important to set expectations (with Jasmine: 'expect' and 'when') before we instatiate controller
+* 
+****/
+
+describe('Test AboutCtrl controller and factory using Mocking: ', function () {
 
 	var aboutCtrl, scope, httpBackend;
 
@@ -39,11 +50,12 @@ describe('Test service with AboutCtrl controller and factory: ', function () {
 	}));
 
 	it('test factory: ', function(){
+		//console.log('httpBackend', httpBackend);
 		httpBackend.flush();
-		//console.log('aboutCtrl', aboutCtrl);
-		expect(scope).toBeDefined();
+		console.log('httpBackend', httpBackend);
+		expect(scope.data.table.id_title).toBeDefined();
 
-		console.log('scope', scope);
+		console.log('scope.data', scope.data);
 	});
 
 });
