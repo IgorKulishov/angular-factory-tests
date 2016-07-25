@@ -44,6 +44,11 @@ angular.module('yo714App', [
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .state('about.form', {
+        url: '/form',
+        templateUrl: 'views/form.html',
+        controller: 'FormCtrl'
+      })
       .state('about.schedule', {
         url: '/schedule',
         templateUrl: 'views/schedule.html',

@@ -1,0 +1,8 @@
+<h2>Application form</h2>
+<form name="form">
+	<input name="name" ng-model="myform" name-validation placeholder="name">
+	<span ng-show="form.name.$error.lengthvalid">Max 10 characters</span>
+	<span ng-show="form.name.$error.emailval">@ is missing</span>
+</form>
+
+
